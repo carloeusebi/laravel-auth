@@ -44,6 +44,12 @@
                     {{-- todo --}}
                 </div>
             </div>
+
+
+            <div class="mb-2">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description', $project->description) }}</textarea>
+            </div>
     </div>
 
     <hr class="my-3">
@@ -53,5 +59,8 @@
     </div>
     </form>
 </div>
-<div class="col"></div>
+<div class="col">
+    {{-- todo SHOW THUMBNAIL --}}
+
+</div>
 </div>

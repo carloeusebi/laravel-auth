@@ -31,7 +31,12 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Project::create($data);
+
+        //todo reroute to projects.show once done
+        return to_route('admin.projects.index');
     }
 
     /**
