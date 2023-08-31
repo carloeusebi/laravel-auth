@@ -1,5 +1,5 @@
 <div class="row row-cols-md-2" x-data="{
-    thumbnail: '{{ $project->thumbnail }}'
+    thumbnail: '{{ old('thumbnail', $project->thumbnail) }}'
 }">
     <div class="col">
 
@@ -12,9 +12,11 @@
                 <label for="name" class="form-label">Project Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                     name="name" value="{{ old('name', $project->name) }}" required>
-                <div class="invalid-feedback">
-                    {{-- todo --}}
-                </div>
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             {{-- thumbnail --}}
@@ -22,9 +24,11 @@
                 <label for="thumbnail" class="form-label">Project thumbnail</label>
                 <input type="text" class="form-control @error('thumbnail') is-invalid @enderror" id="thumbnail"
                     name="thumbnail" value="{{ old('thumbnail', $project->thumbnail) }}" x-model="thumbnail">
-                <div class="invalid-feedback">
-                    {{-- todo --}}
-                </div>
+                @error('thumbnail')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             {{-- URL --}}
@@ -32,9 +36,11 @@
                 <label for="url" class="form-label">Project url</label>
                 <input type="text" class="form-control @error('url') is-invalid @enderror" id="url"
                     name="url" value="{{ old('url', $project->url) }}">
-                <div class="invalid-feedback">
-                    {{-- todo --}}
-                </div>
+                @error('url')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             {{-- URL --}}
@@ -42,15 +48,23 @@
                 <label for="github_url" class="form-label">Github Url</label>
                 <input type="text" class="form-control @error('github_url') is-invalid @enderror" id="github_url"
                     name="github_url" value="{{ old('github_url', $project->github_url) }}">
-                <div class="invalid-feedback">
-                    {{-- todo --}}
-                </div>
+                @error('github_url')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
 
             <div class="mb-2">
-                <label for="description">Description</label>
-                <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description', $project->description) }}</textarea>
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" id="description" cols="30" rows="10"
+                    class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description) }}</textarea>
+                @error('description')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <hr class="my-3">
 
