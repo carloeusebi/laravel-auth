@@ -12,7 +12,7 @@ class DeleteProject extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public Project $project)
+    public function __construct(public Project $project, public bool $compact = false)
     {
         //
     }
