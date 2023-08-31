@@ -4,13 +4,22 @@
     <x-admin.projects.header title="Projects Manager" />
 
 
-    <div class="d-flex justify-content-end ">
-        <a href="{{ route('admin.projects.create') }}" class="btn btn-primary ">Create a new Project</a>
+    <div class="d-flex align-items-center justify-content-between gap-4">
+        {{-- SEARCHBAR --}}
+        <form class="input-group">
+            <button class="input-group-text">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input type="search" class="form-control" placeholder="Search..." name="search" />
+        </form>
+        <div style="min-width: 200px">
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-primary ">Create a new Project</a>
+        </div>
     </div>
 
-    <section id="projects" class="my-5">
+    <section id="projects" class="my-5 d-flex flex-column h-full flex-grow-1 ">
         @if (count($projects))
-            <table class="table">
+            <table class="table flex-grow-1 ">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -46,6 +55,11 @@
                         </tr>
                     @endforeach
             </table>
+            <div>
+                @if ($projects->hasPages())
+                    {{ $projects->links() }}
+                @endif
+            </div>
         @else
             <x-app-alert type="info" message="No Projects Found"></x-app-alert>
         @endif

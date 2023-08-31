@@ -12,9 +12,10 @@ class ProjectsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::all();
+        $search = $request->get('search');
+        $projects = Project::where('name', 'like', "%$search%")->paginate(10);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -27,7 +28,7 @@ class ProjectsController extends Controller
         return view('admin.projects.create', compact('project'));
     }
 
-    /**
+    /*
      * Store a newly created resource in storage.
      */
     public function store(ProjectRequest $request)

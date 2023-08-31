@@ -36,12 +36,12 @@
 
 <body>
     <div id="app">
-        <div class="container pt-5">
+        <div class="container pt-5 vh-100 ">
 
 
             <x-navbar></x-navbar>
 
-            <main class="p-5">
+            <main class="pt-5 d-flex flex-column h-100 ">
                 @yield('content')
             </main>
         </div>
