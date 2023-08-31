@@ -3,6 +3,12 @@
 @section('content')
     <header>
         <h1>Projects Manager</h1>
+
+        {{-- APP ALERT --}}
+        @if (session('alert-message'))
+            <x-app-alert type="{{ session('alert-type') ?? 'info' }}" message="{{ session('alert-message') }}"
+                dismissable />
+        @endif
         <hr>
     </header>
 
