@@ -33,7 +33,7 @@ class ProjectsController extends Controller
     {
         $data = $request->all();
 
-        Project::create($data);
+        $project = Project::create($data);
 
         return to_route('admin.projects.show', compact('project'));
     }

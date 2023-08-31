@@ -40,7 +40,7 @@
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     {{-- delete button --}}
-                                    <x-admin.projects.delete-project :project="$project" />
+                                    <x-admin.projects.delete-project :project="$project" compact />
                                 </div>
                             </td>
                         </tr>

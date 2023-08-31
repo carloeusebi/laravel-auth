@@ -17,7 +17,7 @@ class ProjectSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             Project::create([
                 'name' => "Project $i",
-                'thumbnail' => 'https://picsum.photos/200/200',
+                'thumbnail' => 'https://picsum.photos/600/600',
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptate veritatis illum velit modi nam tempore fuga, aliquam magnam id. Magni consequuntur eligendi provident quod blanditiis labore eaque et natus.',
             ]);
         }
