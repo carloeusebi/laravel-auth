@@ -36,7 +36,7 @@
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                     {{-- edit button --}}
-                                    <a class="btn btn-warning" href="{{ route('admin.projects.update', $project) }}">
+                                    <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     {{-- delete button --}}
