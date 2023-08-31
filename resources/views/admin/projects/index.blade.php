@@ -11,46 +11,48 @@
     </div>
 
     <section id="projects" class="my-5">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">Updated</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse($projects as $project)
+        @if (count($projects))
+            <table class="table">
+                <thead>
                     <tr>
-                        <th scope="row">{{ $project->id }}</th>
-                        <td>{{ $project->name }}</td>
-                        <td>{{ substr($project->description, 0, 20) }}...</td>
-                        <td>{{ $project->created_at }}</td>
-                        <td>{{ $project->updated_at }}</td>
-                        <td>
-                            <div class="d-flex gap-1 justify-content-end ">
-                                {{-- show button --}}
-                                <a class="btn btn-primary" href="{{ route('admin.projects.show', $project) }}">
-                                    <i class="fa-solid fa-eye"></i>
-                                </a>
-                                {{-- edit button --}}
-                                <a class="btn btn-warning" href="{{ route('admin.projects.update', $project) }}">
-                                    <i class="fa-solid fa-pen"></i>
-                                </a>
-                                {{-- delete button --}}
-                                {{-- todo --}}
-                                <div class="btn btn-danger" href="{{ route('admin.projects.show', $project) }}">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </div>
-                            </div>
-                        </td>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                        <th scope="col"></th>
                     </tr>
-                @empty
-                @endforelse
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($projects as $project)
+                        <tr>
+                            <th scope="row">{{ $project->id }}</th>
+                            <td>{{ $project->name }}</td>
+                            <td>{{ substr($project->description, 0, 20) }}...</td>
+                            <td>{{ $project->created_at }}</td>
+                            <td>{{ $project->updated_at }}</td>
+                            <td>
+                                <div class="d-flex gap-1 justify-content-end ">
+                                    {{-- show button --}}
+                                    <a class="btn btn-primary" href="{{ route('admin.projects.show', $project) }}">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
+                                    {{-- edit button --}}
+                                    <a class="btn btn-warning" href="{{ route('admin.projects.update', $project) }}">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    {{-- delete button --}}
+                                    {{-- todo --}}
+                                    <div class="btn btn-danger" href="{{ route('admin.projects.show', $project) }}">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+            </table>
+        @else
+            <x-app-alert type="info" message="No Projects Found"></x-app-alert>
+        @endif
     </section>
 @endsection
