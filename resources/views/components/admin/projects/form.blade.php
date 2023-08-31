@@ -1,4 +1,6 @@
-<div class="row row-cols-md-2 gap-2">
+<div class="row row-cols-md-2" x-data="{
+    thumbnail: 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1'
+}">
     <div class="col">
 
         <form class="needs-validation" novalidate method="POST" action={{ route($action) }}>
@@ -19,7 +21,7 @@
             <div class="mb-2">
                 <label for="thumbnail" class="form-label">Project thumbnail</label>
                 <input type="text" class="form-control @error('thumbnail') is-invalid @enderror" id="thumbnail"
-                    name="thumbnail" value="{{ old('thumbnail', $project->thumbnail) }}" required>
+                    name="thumbnail" value="{{ old('thumbnail', $project->thumbnail) }}" x-model="thumbnail">
                 <div class="invalid-feedback">
                     {{-- todo --}}
                 </div>
@@ -29,7 +31,7 @@
             <div class="mb-2">
                 <label for="url" class="form-label">Project url</label>
                 <input type="text" class="form-control @error('url') is-invalid @enderror" id="url"
-                    name="url" value="{{ old('url', $project->url) }}" required>
+                    name="url" value="{{ old('url', $project->url) }}">
                 <div class="invalid-feedback">
                     {{-- todo --}}
                 </div>
@@ -39,7 +41,7 @@
             <div class="mb-2">
                 <label for="github_url" class="form-label">Github Url</label>
                 <input type="text" class="form-control @error('github_url') is-invalid @enderror" id="github_url"
-                    name="github_url" value="{{ old('github_url', $project->github_url) }}" required>
+                    name="github_url" value="{{ old('github_url', $project->github_url) }}">
                 <div class="invalid-feedback">
                     {{-- todo --}}
                 </div>
@@ -50,17 +52,17 @@
                 <label for="description">Description</label>
                 <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{ old('description', $project->description) }}</textarea>
             </div>
+            <hr class="my-3">
+
+
+            <div>
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+        </form>
     </div>
-
-    <hr class="my-3">
-
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
+    <div class="col">
+        <img :src="thumbnail || '{{ Vite::asset('resources/img/placeholder.jpg') }}'" alt="thumbnail preview"
+            class="img-fluid w-100" />
     </div>
-    </form>
-</div>
-<div class="col">
-    {{-- todo SHOW THUMBNAIL --}}
-
 </div>
 </div>
