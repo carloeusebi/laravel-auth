@@ -22,8 +22,8 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        $newProject = new Project();
-        return view('admin.projects.create', compact('newProject'));
+        $project = new Project();
+        return view('admin.projects.create', compact('project'));
     }
 
     /**
