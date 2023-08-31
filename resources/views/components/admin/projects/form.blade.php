@@ -1,9 +1,9 @@
 <div class="row row-cols-md-2" x-data="{
-    thumbnail: ''
+    thumbnail: '{{ $project->thumbnail }}'
 }">
     <div class="col">
 
-        <form class="needs-validation" novalidate method="POST" action={{ route($action) }}>
+        <form class="needs-validation" novalidate method="POST" action={{ route($action, $project) }}>
             @csrf
             @method($method)
 
