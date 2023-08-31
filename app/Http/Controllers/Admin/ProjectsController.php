@@ -35,16 +35,15 @@ class ProjectsController extends Controller
 
         Project::create($data);
 
-        //todo reroute to projects.show once done
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.show', compact('project'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**

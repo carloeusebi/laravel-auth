@@ -1,16 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <header>
-        <h1>Projects Manager</h1>
+    <x-admin.projects.header title="Projects Manager" />
 
-        {{-- APP ALERT --}}
-        @if (session('alert-message'))
-            <x-app-alert type="{{ session('alert-type') ?? 'info' }}" message="{{ session('alert-message') }}"
-                dismissable />
-        @endif
-        <hr>
-    </header>
 
     <div class="d-flex justify-content-end ">
         <a href="{{ route('admin.projects.create') }}" class="btn btn-primary ">Create a new Project</a>

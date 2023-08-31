@@ -1,5 +1,5 @@
 <div class="row row-cols-md-2" x-data="{
-    thumbnail: 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1'
+    thumbnail: ''
 }">
     <div class="col">
 
@@ -61,8 +61,8 @@
         </form>
     </div>
     <div class="col">
-        <img :src="thumbnail || '{{ Vite::asset('resources/img/placeholder.jpg') }}'" alt="thumbnail preview"
-            class="img-fluid w-100" />
+        <img :src="thumbnail || 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1'"
+            alt="thumbnail preview" class="img-fluid w-100" />
     </div>
 </div>
 </div>
