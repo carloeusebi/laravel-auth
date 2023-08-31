@@ -30,7 +30,23 @@
                         <td>{{ substr($project->description, 0, 20) }}...</td>
                         <td>{{ $project->created_at }}</td>
                         <td>{{ $project->updated_at }}</td>
-                        <td>todo</td>
+                        <td>
+                            <div class="d-flex gap-1 justify-content-end ">
+                                {{-- show button --}}
+                                <a class="btn btn-primary" href="{{ route('admin.projects.show', $project) }}">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                {{-- edit button --}}
+                                <a class="btn btn-warning" href="{{ route('admin.projects.update', $project) }}">
+                                    <i class="fa-solid fa-pen"></i>
+                                </a>
+                                {{-- delete button --}}
+                                {{-- todo --}}
+                                <div class="btn btn-danger" href="{{ route('admin.projects.show', $project) }}">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 @empty
                 @endforelse
