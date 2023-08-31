@@ -18,8 +18,7 @@ class ProjectSeeder extends Seeder
             Project::create([
                 'name' => "Project $i",
                 'thumbnail' => 'https://picsum.photos/200/200',
-                'description' => '
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptate veritatis illum velit modi nam tempore fuga, aliquam magnam id. Magni consequuntur eligendi provident quod blanditiis labore eaque et natus.',
+                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptate veritatis illum velit modi nam tempore fuga, aliquam magnam id. Magni consequuntur eligendi provident quod blanditiis labore eaque et natus.',
             ]);
         }
     }
