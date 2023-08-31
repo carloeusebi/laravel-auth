@@ -17,8 +17,19 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        <a class="nav-link @if (Route::is('guest.home')) active @endif"
+                            href="{{ url('/') }}">Home</a>
                     </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link @if (Route::is('admin.home')) active @endif"
+                                href="{{ route('admin.home') }}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @if (Route::is('admin.projects*')) active @endif"
+                                href="{{ route('admin.projects.index') }}">Projects</a>
+                        </li>
+                    @endauth
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -34,7 +45,8 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
+                        <li class="nav-item
+                            dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
