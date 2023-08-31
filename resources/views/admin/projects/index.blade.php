@@ -42,10 +42,7 @@
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     {{-- delete button --}}
-                                    {{-- todo --}}
-                                    <div class="btn btn-danger" href="{{ route('admin.projects.show', $project) }}">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </div>
+                                    <x-admin.projects.delete-project :project="$project" />
                                 </div>
                             </td>
                         </tr>
