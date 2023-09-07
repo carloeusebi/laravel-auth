@@ -20,11 +20,11 @@
                 @enderror
             </div>
 
-            {{-- thumbnail --}}
+            {{-- THUMBNAIL --}}
             <div class="mb-2">
                 <label for="thumbnail" class="form-label">Project thumbnail</label>
                 <input type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="thumbnail"
-                    name="thumbnail" value="{{ old('thumbnail', $project->thumbnail) }}" x-model="thumbnail">
+                    name="thumbnail" value="{{ old('thumbnail', $project->thumbnail) }}">
                 @error('thumbnail')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -44,7 +44,7 @@
                 @enderror
             </div>
 
-            {{-- URL --}}
+            {{-- GITHUB --}}
             <div class="mb-2">
                 <label for="github_url" class="form-label">Github Url</label>
                 <input type="text" class="form-control @error('github_url') is-invalid @enderror" id="github_url"
@@ -57,6 +57,7 @@
             </div>
 
 
+            {{-- DESCRIPTION --}}
             <div class="mb-2">
                 <label for="description" class="form-label">Description</label>
                 <textarea name="description" id="description" cols="30" rows="10"
@@ -75,9 +76,16 @@
             </div>
         </form>
     </div>
+
+    {{-- thumbnail previdew --}}
     <div class="col">
-        <img :src="thumbnail || 'https://i1.wp.com/potafiori.com/wp-content/uploads/2020/04/placeholder.png?ssl=1'"
-            alt="thumbnail preview" class="img-fluid w-100" />
+        <img id="thumbnail-preview" src="{{ Vite::asset('resources/images/placeholder.jpg') }}" alt="thumbnail preview"
+            class="img-fluid w-100" />
     </div>
-</div>
+
+
+    @section('scripts')
+        <script defer src="{{ Vite::asset('resources/js/image-previewer.js') }}"></script>
+    @endsection
+
 </div>
