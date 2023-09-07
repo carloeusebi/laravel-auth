@@ -36,6 +36,7 @@ class ProjectsController extends Controller
     {
         $data = $request->all();
 
+        // storing the image
         if (array_key_exists('thumbnail', $data)) {
             $thumbnail = Storage::putFile('project_images', $data['thumbnail']);
             $data['thumbnail'] = $thumbnail;
@@ -69,6 +70,17 @@ class ProjectsController extends Controller
     public function update(ProjectRequest $request, Project $project)
     {
         $data = $request->all();
+
+        // storing the image
+        if (array_key_exists('thumbnail', $data)) {
+            // if there was already an image delete that image
+            if ($project->thumbnail) {
+                Storage::delete($project->thumbnail);
+            }
+            $thumbnail = Storage::putFile('project_images', $data['thumbnail']);
+            $data['thumbnail'] = $thumbnail;
+        }
+
         $project->update($data);
 
         return to_route('admin.projects.show', compact('project'))
@@ -81,11 +93,18 @@ class ProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
-        $projectName = $project->name;
+        // remember the project name to later send it in the message
+        $project_name = $project->name;
+
+        // delete the thumbnail if present
+        if ($project->thumbnail) {
+            Storage::delete($project->thumbnail);
+        }
+
         $project->delete();
 
         return to_route('admin.projects.index')
             ->with('alert-type', 'success')
-            ->with('alert-message', "$projectName successfully deleted");
+            ->with('alert-message', "$project_name successfully deleted");
     }
 }
