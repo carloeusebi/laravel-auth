@@ -4,8 +4,8 @@
     <x-admin.projects.header :title="$project->name" has-back-button />
 
     <section>
-        <div class="row row-cols-md-">
-            <div class="col">
+        <div class="row">
+            <div class="col-12 col-md-8">
 
                 {{-- GITHUB URL --}}
                 @isset($project->github_url)
@@ -23,9 +23,10 @@
                 </p>
 
             </div>
-            <div class="col d-flex flex-column justify-content-between">
-                <figure style="height: 600px" class="bg-dark-subtle ">
-                    <img src="{{ $project->thumbUrl }}" alt="thumbnail" class="block object-fit-cover" />
+            <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
+                {{-- preview --}}
+                <figure class="bg-dark-subtle overflow-hidden d-flex justify-content-center align-items-center ">
+                    <img src="{{ $project->thumbUrl }}" alt="thumbnail" class="block object-fit-cover  w-100" />
                 </figure>
                 <div class="d-flex gap-2 justify-content-end ">
                     <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}">
