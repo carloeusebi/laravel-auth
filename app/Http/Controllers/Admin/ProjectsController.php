@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectsController extends Controller
 {
@@ -34,6 +35,11 @@ class ProjectsController extends Controller
     public function store(ProjectRequest $request)
     {
         $data = $request->all();
+
+        if (array_key_exists('thumbnail', $data)) {
+            $thumbnail = Storage::putFile('project_images', $data['thumbnail']);
+            $data['thumbnail'] = $thumbnail;
+        }
 
         $project = Project::create($data);
 

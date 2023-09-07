@@ -14,6 +14,6 @@ class Project extends Model
 
     public function getThumbUrlAttribute()
     {
-        return asset('storage/project_images/' . $this->thumbnail);
+        return $this->thumbnail ? asset('storage/' . $this->thumbnail) : null;
     }
 }

@@ -28,7 +28,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Storage::deleteDirectory('public/project_images');
+        Storage::deleteDirectory('project_images');
         Schema::dropIfExists('projects');
     }
 };

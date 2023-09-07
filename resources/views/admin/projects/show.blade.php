@@ -26,8 +26,10 @@
             <div class="col-12 col-md-4 d-flex flex-column justify-content-between">
                 {{-- preview --}}
                 <figure class="bg-dark-subtle overflow-hidden d-flex justify-content-center align-items-center ">
-                    <img src="{{ $project->thumbUrl }}" alt="thumbnail" class="block object-fit-cover  w-100" />
+                    <img src="{{ $project->thumbUrl ?? Vite::asset('resources/images/placeholder.jpg') }}" alt="thumbnail"
+                        class="block object-fit-cover  w-100" />
                 </figure>
+
                 <div class="d-flex gap-2 justify-content-end ">
                     <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}">
                         <i class="fa-solid fa-pen me-2"></i>
