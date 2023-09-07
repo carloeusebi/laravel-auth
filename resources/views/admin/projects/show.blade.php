@@ -31,12 +31,19 @@
                 </figure>
 
                 <div class="d-flex gap-2 justify-content-end ">
+
+                    {{-- EDIT BUTTON --}}
                     <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}">
                         <i class="fa-solid fa-pen me-2"></i>
-                        <span>Modifica</span>
+                        <span>Edit</span>
                     </a>
-                    <x-admin.projects.delete-project :project="$project" />
+                    {{-- DELETE BUTTON --}}
+                    <x-admin.projects.delete-form :$project></x-admin.projects.delete-form>
                 </div>
             </div>
     </section>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/delete-project-confirmation.js')
 @endsection

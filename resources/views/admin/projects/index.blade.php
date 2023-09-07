@@ -66,7 +66,7 @@
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     {{-- delete button --}}
-                                    <x-admin.projects.delete-project :project="$project" compact />
+                                    <x-admin.projects.delete-form :$project compact></x-admin.projects.delete-form>
                                 </div>
                             </td>
                         </tr>
@@ -76,4 +76,8 @@
             <x-app-alert type="info" message="No Projects Found"></x-app-alert>
         @endif
     </section>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/delete-project-confirmation.js')
 @endsection
