@@ -21,9 +21,12 @@ class ProjectSeeder extends Seeder
         // creates 10 records
         for ($i = 0; $i < 10; $i++) {
             Project::create([
-                'name' => "Project $i",
-                'thumbnail' => "$DIR/" . $faker->image(storage_path("app/public/$DIR"), 600, 600, fullPath: false),
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptate veritatis illum velit modi nam tempore fuga, aliquam magnam id. Magni consequuntur eligendi provident quod blanditiis labore eaque et natus.',
+                'name' => $faker->words(3, true),
+                'thumbnail' => "$DIR/" . $faker->image(storage_path("app/public/$DIR"), 250, 250, fullPath: false),
+                'description' => $faker->paragraph(10),
+                'url' => $faker->url(),
+                'github_url' => $faker->url(),
+
             ]);
         }
     }
