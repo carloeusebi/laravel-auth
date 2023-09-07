@@ -25,7 +25,7 @@
             </div>
             <div class="col d-flex flex-column justify-content-between">
                 <figure style="height: 600px" class="bg-dark-subtle ">
-                    <img src="{{ $project->thumbnail }}" alt="thumbnail" class="block object-fit-cover" />
+                    <img src="{{ $project->thumbUrl }}" alt="thumbnail" class="block object-fit-cover" />
                 </figure>
                 <div class="d-flex gap-2 justify-content-end ">
                     <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}">

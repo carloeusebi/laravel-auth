@@ -22,7 +22,7 @@ class ProjectSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             Project::create([
                 'name' => "Project $i",
-                'thumbnail' => Storage::putFile($DIR, $faker->image(storage_path("app/$DIR"), 600, 600)),
+                'thumbnail' => $faker->image(storage_path("app/$DIR"), 600, 600, fullPath: false),
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit voluptate veritatis illum velit modi nam tempore fuga, aliquam magnam id. Magni consequuntur eligendi provident quod blanditiis labore eaque et natus.',
             ]);
         }
