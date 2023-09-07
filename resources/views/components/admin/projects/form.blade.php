@@ -3,7 +3,8 @@
 }">
     <div class="col">
 
-        <form class="needs-validation" novalidate method="POST" action={{ route($action, $project) }}>
+        <form class="needs-validation" novalidate method="POST" action="{{ route($action, $project) }}"
+            enctype="multipart/form-data">
             @csrf
             @method($method)
 
@@ -22,7 +23,7 @@
             {{-- thumbnail --}}
             <div class="mb-2">
                 <label for="thumbnail" class="form-label">Project thumbnail</label>
-                <input type="text" class="form-control @error('thumbnail') is-invalid @enderror" id="thumbnail"
+                <input type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="thumbnail"
                     name="thumbnail" value="{{ old('thumbnail', $project->thumbnail) }}" x-model="thumbnail">
                 @error('thumbnail')
                     <div class="invalid-feedback">
